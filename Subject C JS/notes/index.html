@@ -1,0 +1,87 @@
+<!DOCTYPE html> <!-- this top part is the basic setup of the page -->
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css"> <!-- this links the index to the style sheet-->
+    <title>Demo</title> <!-- this sets the tab title -->
+    <link rel="icon" type="image/x-icon" href="../images/smilefavicon.png"> <!-- this adds a favicon -->
+    <meta charset="utf-8"> <!-- this allows  my code to use the robot emoji , essentially recognising characters that aren't a part of the traditional ASCII character set -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- this ensures that the page resized correctly to different devices-->
+</head>
+<body>
+  <audio id="messageSound" src="../images/Pop.mp3"></audio> <!-- these two lines on 10/11 define the sounds for the pop sound on the livechat-->  
+  <audio id="botSound" src="../images/botpop.mp3"></audio> <!-- these two lines on 10/11 define the sounds for the pop sound on the livechat-->  
+    <div class="hero"> <!-- this div sets up the background video -->
+        <video autoplay loop muted plays-inline class="back-video"> 
+            <source src="../images/background.mp4" type="video/mp4">
+        </video>
+        <div class="content"> <!-- this div adds content to the page itself -->
+            <h1>Welcome</h1>
+                <!--code for the chatbot button-->
+            <button class="chat-btn" onclick="toggleChat()">Chat with us!</button>
+            <div class="chat-box" id="chatBox">
+              <div class="chat-header">
+                Chat with us!
+              </div>
+              <div class="chat-body" id="chatBody">
+                <!-- this is where the chat messages will appear here -->
+              </div>
+              <div class="chat-input">
+                <div id="start">
+                  <button id="starts" onclick="startChat(this.id)">Start Chat</button>
+                </div>
+                <div id="initialQuestions" style="display: none;">
+                <!-- <these are the initial question buttons to determine the category> -->
+                <button id="order" onclick="getInitalQuestion(this.id)">Order Related</button>
+                <button id="account" onclick="getInitalQuestion(this.id)">Account Related</button>
+                <button id="payment" onclick="getInitalQuestion(this.id)">Payment</button>
+                <button id="shipping" onclick="getInitalQuestion(this.id)">Shipping</button>
+                <button id="issues" onclick="getInitalQuestion(this.id)">Order Issues</button>
+              </div>
+              <!-- these are the follow up yes/no buttons, and the trigger for the follow up responses -->
+            <div id="followUp" style="display: none;">
+              <button onclick="followUpResponse('yes')">Yes</button>
+              <button id="no" onclick="followUpResponse(this.id)">No</button>
+              <button id="Ask a new question" onclick="followUpResponse('Ask a new question')">Ask a new question</button>
+            </div>
+            <!-- these are the follow up question buttons, separated by category  -->
+            <div id="orders" style="display: none;">
+              <button id="How can I track my order?" onclick="getQuestion(this.id)">How can I track my order?</button>
+              <button id="Can I change the shipping address on my order?" onclick="getQuestion(this.id)">Can I change the shipping address on my order?</button>
+              <button id="What happens if I miss my delivery?" onclick="getQuestion(this.id)">What happens if I miss my delivery?</button>
+              <button id="Can I return a product?" onclick="getQuestion(this.id)">Can I return a product?</button>
+            </div>
+
+            <div id="accounts" style="display: none;">
+              <button id="How do I create an account?" onclick="getQuestion(this.id)">How do I create an account?</button>
+              <button id="How do I update my account information?" onclick="getQuestion(this.id)">How do I update my account information?</button>
+              <button id="I forgot my password. How can I reset it?" onclick="getQuestion(this.id)">I forgot my password. How can I reset it?</button>
+              <button id="How can I delete my account?" onclick="getQuestion(this.id)">How can I delete my account?</button>
+            </div>
+
+            <div id="payments" style="display: none;">
+              <button id="Is my payment information secure?" onclick="getQuestion(this.id)">Is my payment information secure?</button>
+              <button id="What happens if my payment is declined?" onclick="getQuestion(this.id)">What happens if my payment is declined</button>
+              <button id="Can I pay with a purchase order?" onclick="getQuestion(this.id)">Can I pay with a purchase order?</button>
+              <button id="Do you offer financing options for larger purchases?" onclick="getQuestion(this.id)">Do you offer financing options for larger purchases?</button>
+            </div>
+
+            <div id="shippings" style="display: none;">
+              <button id="How long will it take for my order to arrive?" onclick="getQuestion(this.id)">How long will it take for my order to arrive?</button>
+              <button id="Do you offer expedited shipping options?" onclick="getQuestion(this.id)">Do you offer expedited shipping options?</button>
+              <button id="Can I ship my order to a different address?" onclick="getQuestion(this.id)">Can I ship my order to a different address?</button>
+              <button id="Do you offer international shipping?" onclick="getQuestion(this.id)">Do you offer international shipping?</button>
+            </div>
+
+            <div id="issuess" style="display: none;">
+              <button id="I received the wrong item. What should I do?" onclick="getQuestion(this.id)">I received the wrong item. What should I do</button>
+              <button id="My order is missing an item. What should I do?" onclick="getQuestion(this.id)">My order is missing an item. What should I do?</button>
+              <button id="What should I do if my order arrives damaged?" onclick="getQuestion(this.id)">What should I do if my order arrives damaged?</button>
+              <button id="Can I cancel my order?" onclick="getQuestion(this.id)">Can I cancel my order?</button>
+            </div>
+          </div>
+        </div>
+        </div>  
+        <script src="../notes/questions.js"></script> <!-- this imports the questions file before the rest of the script-->
+        <script src="../notes/script.js"></script> <!-- this imports the rest of the js code-->
+  </body>
+</html>

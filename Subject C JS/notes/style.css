@@ -1,0 +1,139 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;}
+
+.hero{ /* this is linked to the "hero" group controls the background and main page area */
+    width:100%;
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav .logo{
+width: 80px;
+}
+.content {
+    text-align: center;
+    position: relative; 
+    z-index: 1; 
+    text-align: center;
+  }
+  
+.content h1 {
+    margin: 0 auto; 
+    font-size: 180px;
+    color: #ffffff;
+    font-weight: 600;
+    transition:0.5s;
+}
+.content h1:hover{ /* this enables the white translucent hover for the weclome sign*/
+    -webkit-text-stroke: 2px #fff;
+    color:transparent;
+}
+.back-video{ /* this positions the background video*/
+    position:absolute; 
+    right:0;
+    bottom:0;
+    z-index: -0.9;
+}
+@media (min-aspect-ratio: 16/9){ /* this sets the min asepct ratio of the bg video */
+    .back-video{
+        width: 100%;
+        height: auto;
+    }
+}
+    @media (max-aspect-ratio: 16/9){ /* this sets the max asepct ratio of the bg video */
+        .back-video{
+            width: auto;
+            height: 100%;
+        }
+}
+.chat-btn {  /* this stylises the chat button */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3dd2ff;
+  color: white;
+  border-color: #000000;
+  border-radius: 10%;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  cursor: pointer;
+  font-size: 30px
+;
+}
+.chat-box { /* this stylises the chat box*/
+  display: none;
+  position: fixed;
+  bottom: 107px;
+  right: 20px;
+  border: 5px solid #000000;
+  border-radius: 10px;
+  background-image: linear-gradient(#babaff, #faa1ff);  
+  min-width: 250px;
+  max-width: 250px;
+  max-height: 600px;
+  min-height: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chat-header { /*  this stylises the chat header "Chat with us*/
+  background-color: #3dd2ff;
+  color: rgb(0, 0, 0);
+  padding: 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  
+}
+
+.chat-body { /*this stylises the chat body section where the messages are displayed */
+  padding: 10px;
+  max-height: 270px;
+  min-height: 270px;
+  overflow-y: auto;
+}
+
+.chat-input { /* this stylises the button chat input area*/
+  display: flex;
+  padding: 10px;
+  padding-left: 1px;
+  border-top: 1px solid #ccc;
+}
+
+.chat-input button { /* this styles the chat selector buttons themselves */
+  background-color: #3dd2ff;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-left: 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+
+}
+.chat-message { /*This styles both chat bubbles, and the colour/alignment of the bots messages */
+  margin: 30px 0;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: #ffd2ee;
+  border-radius: 10px;
+  align-items: right;
+  text-align: right;
+  box-sizing: content-box;
+  
+}
+
+.chat-message.user { /* this styles the alignment and colour of the user messages*/
+  background-color: #badbff;
+  align-items: left;
+  text-align: left;
+  padding-left: 10px;
+  border-radius: 10px;
+}
