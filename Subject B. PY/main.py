@@ -43,7 +43,7 @@ while(True):
      print('Sorry, you seem to have not written anything, please retry')
      question = input("You: ") #this prompts the user to ask a question
 
-    response = chat.send_message (question) #this sends the users question to the api
+    response = chat.send_message (instruction + question) #this sends the users question to the api
     print(f"Simon: {response.text}") #this prints the bots response with 'Simon:' at the start
     print('\n') # this adds a new line
     instruction = ''  # this clears the instruction variable
